@@ -1,0 +1,928 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>607</width>
+    <height>527</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>XMPP Federation Configuration Manager</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="icons/icons.qrc">
+    <normaloff>:/xmpp.png</normaloff>:/xmpp.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QGroupBox {
+qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(70, 126, 176, 100), stop:1 rgba(255, 255, 255, 255))qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(70, 126, 176, 100), stop:1 rgba(255, 255, 255, 100))
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <item>
+     <widget class="QTabWidget" name="Credentials">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_basic">
+       <attribute name="title">
+        <string>Basic</string>
+       </attribute>
+       <widget class="QGroupBox" name="gb_general">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>571</width>
+          <height>241</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="title">
+         <string>General</string>
+        </property>
+        <widget class="QCheckBox" name="cb_dns">
+         <property name="geometry">
+          <rect>
+           <x>450</x>
+           <y>130</y>
+           <width>77</width>
+           <height>17</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>DNS Config</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_dns">
+         <property name="geometry">
+          <rect>
+           <x>19</x>
+           <y>125</y>
+           <width>55</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>DNS Server</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="le_dns">
+         <property name="geometry">
+          <rect>
+           <x>100</x>
+           <y>120</y>
+           <width>133</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>IP Address</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_tls">
+         <property name="geometry">
+          <rect>
+           <x>19</x>
+           <y>171</y>
+           <width>71</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Security Mode </string>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="cb_tls">
+         <property name="geometry">
+          <rect>
+           <x>100</x>
+           <y>170</y>
+           <width>89</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string>No TLS</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>TLS Optional</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>TLS Required</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QLabel" name="lbl_server1">
+         <property name="geometry">
+          <rect>
+           <x>19</x>
+           <y>32</y>
+           <width>41</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Server 1</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="le_server1_hn">
+         <property name="geometry">
+          <rect>
+           <x>100</x>
+           <y>32</y>
+           <width>133</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Host Name</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="le_server1_ip">
+         <property name="geometry">
+          <rect>
+           <x>263</x>
+           <y>32</y>
+           <width>133</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>IP Address</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="le_server1_dn">
+         <property name="geometry">
+          <rect>
+           <x>425</x>
+           <y>32</y>
+           <width>133</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Domain</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_server2">
+         <property name="geometry">
+          <rect>
+           <x>19</x>
+           <y>78</y>
+           <width>41</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Server 2</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="le_server2_hn">
+         <property name="geometry">
+          <rect>
+           <x>100</x>
+           <y>78</y>
+           <width>133</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Host Name</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="le_server2_ip">
+         <property name="geometry">
+          <rect>
+           <x>263</x>
+           <y>78</y>
+           <width>133</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>IP Address</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="le_server2_dn">
+         <property name="geometry">
+          <rect>
+           <x>425</x>
+           <y>78</y>
+           <width>133</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Domain</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="cb_cup">
+         <property name="geometry">
+          <rect>
+           <x>450</x>
+           <y>170</y>
+           <width>81</width>
+           <height>17</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>IM &amp; P Config</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <zorder>lbl_dns</zorder>
+        <zorder>le_dns</zorder>
+        <zorder>lbl_tls</zorder>
+        <zorder>cb_tls</zorder>
+        <zorder>lbl_server1</zorder>
+        <zorder>le_server1_hn</zorder>
+        <zorder>le_server1_ip</zorder>
+        <zorder>le_server1_dn</zorder>
+        <zorder>lbl_server2</zorder>
+        <zorder>le_server2_hn</zorder>
+        <zorder>le_server2_ip</zorder>
+        <zorder>le_server2_dn</zorder>
+        <zorder>cb_dns</zorder>
+        <zorder>cb_cup</zorder>
+       </widget>
+       <widget class="QPushButton" name="pb_start">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>400</y>
+          <width>91</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>-1</pointsize>
+          <underline>false</underline>
+          <strikeout>false</strikeout>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+ background: #57b5f0;
+  background-image: -webkit-linear-gradient(top, #57b5f0, #0e2838);
+  background-image: -moz-linear-gradient(top, #57b5f0, #0e2838);
+  background-image: -ms-linear-gradient(top, #57b5f0, #0e2838);
+  background-image: -o-linear-gradient(top, #57b5f0, #0e2838);
+  background-image: linear-gradient(to bottom, #57b5f0, #0e2838);
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 15px;
+  padding: 3px 20px 3px 20px;
+  text-decoration: none;
+}
+
+QPushButton:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}</string>
+        </property>
+        <property name="text">
+         <string>Start</string>
+        </property>
+        <property name="default">
+         <bool>false</bool>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QGroupBox" name="gb_log">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>260</y>
+          <width>571</width>
+          <height>131</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Log</string>
+        </property>
+        <widget class="QTextEdit" name="te_log">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>20</y>
+           <width>531</width>
+           <height>101</height>
+          </rect>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </widget>
+       <zorder>gb_log</zorder>
+       <zorder>gb_general</zorder>
+       <zorder>pb_start</zorder>
+      </widget>
+      <widget class="QWidget" name="tab_advanced">
+       <attribute name="title">
+        <string>Advanced</string>
+       </attribute>
+       <widget class="QGroupBox" name="gb_optional">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>30</y>
+          <width>511</width>
+          <height>301</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Optional</string>
+        </property>
+        <widget class="QCheckBox" name="cb_certs">
+         <property name="geometry">
+          <rect>
+           <x>270</x>
+           <y>90</y>
+           <width>13</width>
+           <height>13</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="checkable">
+          <bool>false</bool>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_sasl1">
+         <property name="geometry">
+          <rect>
+           <x>11</x>
+           <y>161</y>
+           <width>244</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Enable SASL EXTERNAL on all incoming connections</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="cb_sasl1">
+         <property name="geometry">
+          <rect>
+           <x>270</x>
+           <y>160</y>
+           <width>16</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="checkable">
+          <bool>false</bool>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_sasl2">
+         <property name="geometry">
+          <rect>
+           <x>11</x>
+           <y>230</y>
+           <width>248</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Enable SASL EXTERNAL on all outgoing connections </string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="cb_sasl2">
+         <property name="geometry">
+          <rect>
+           <x>270</x>
+           <y>230</y>
+           <width>16</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="checkable">
+          <bool>false</bool>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_dialback">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>40</y>
+           <width>73</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Dialback Secret</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="le_dialback">
+         <property name="geometry">
+          <rect>
+           <x>180</x>
+           <y>40</y>
+           <width>101</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
+         <property name="placeholderText">
+          <string>1234</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_certs">
+         <property name="geometry">
+          <rect>
+           <x>11</x>
+           <y>93</y>
+           <width>185</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Require client-side security certificates</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_creds">
+       <attribute name="title">
+        <string>Credentials</string>
+       </attribute>
+       <widget class="QGroupBox" name="gb_server1">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>30</y>
+          <width>551</width>
+          <height>161</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Server 1</string>
+        </property>
+        <widget class="QWidget" name="layoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>30</y>
+           <width>491</width>
+           <height>101</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_7">
+            <item>
+             <widget class="QLabel" name="lbl_appl1">
+              <property name="text">
+               <string>Application</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_4">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="le_appid1">
+              <property name="placeholderText">
+               <string>User Name</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_5">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="le_apppw1">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="echoMode">
+               <enum>QLineEdit::Password</enum>
+              </property>
+              <property name="placeholderText">
+               <string>Password</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_6">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_8">
+            <item>
+             <widget class="QLabel" name="lbl_plat1">
+              <property name="text">
+               <string>Platform    </string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_7">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="le_platid1">
+              <property name="placeholderText">
+               <string>User Name</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_8">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="le_platpw1">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="echoMode">
+               <enum>QLineEdit::Password</enum>
+              </property>
+              <property name="placeholderText">
+               <string>Password</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_9">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_2">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>240</y>
+          <width>551</width>
+          <height>161</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Server 2</string>
+        </property>
+        <widget class="QWidget" name="layoutWidget_2">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>30</y>
+           <width>491</width>
+           <height>101</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_9">
+            <item>
+             <widget class="QLabel" name="lbl_app2">
+              <property name="text">
+               <string>Application</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_15">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="le_appid2">
+              <property name="placeholderText">
+               <string>User Name</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_19">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="le_apppw2">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="echoMode">
+               <enum>QLineEdit::Password</enum>
+              </property>
+              <property name="placeholderText">
+               <string>Password</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_20">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_10">
+            <item>
+             <widget class="QLabel" name="lbl_plat2">
+              <property name="text">
+               <string>Platform    </string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_21">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="le_platid2">
+              <property name="placeholderText">
+               <string>User Name</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_22">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="le_platpw2">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="echoMode">
+               <enum>QLineEdit::Password</enum>
+              </property>
+              <property name="placeholderText">
+               <string>Password</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_23">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QCheckBox" name="cb_copy">
+         <property name="geometry">
+          <rect>
+           <x>330</x>
+           <y>10</y>
+           <width>121</width>
+           <height>17</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Copy from Server 1</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>607</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actionClose"/>
+    <addaction name="actionOpen_Log"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionClose">
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionOpen_Log">
+   <property name="text">
+    <string>Open Log</string>
+   </property>
+  </action>
+  <action name="action_Close">
+   <property name="text">
+    <string>@Close</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="icons/icons.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>actionClose</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>295</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
