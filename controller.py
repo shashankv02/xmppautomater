@@ -17,7 +17,7 @@ import uploadCerts
 
 logging.basicConfig(filename="log.txt",level=logging.INFO, format='%(threadName)s - %(levelname)s - %(message)s')
 #logging.disable(logging.CRITICAL)
-import ssh
+#import ssh
 #too much code creeped into mainthread again. need to refactor
 class controller(QMainWindow,XmppApp4_ui.Ui_MainWindow):
     def __init__(self):
@@ -48,12 +48,12 @@ class controller(QMainWindow,XmppApp4_ui.Ui_MainWindow):
         #print(logpath)
         #paths = [ logpath ]
         logpath = os.path.join(os.getcwd(), 'log.txt')
-        file= QFile(logpath)
-        file.open()
-        logfd = file.handle()
+ #       file= QFile(logpath)
+#        file.open()
+  #      logfd = file.handle()
         #logfd = open(logpath, 'r')
-        notifier = QSocketNotifier(logfd, QSocketNotifier.Read)
-        notifier.activated.connect(self.logWatcher)
+   #     notifier = QSocketNotifier(logfd, QSocketNotifier.Read)
+    #    notifier.activated.connect(self.logWatcher)
        # fs_watcher= QFileSystemWatcher()
        #fs_watcher.addPath(logpath)
         #fs_watcher.addPath(logpath)
@@ -61,17 +61,7 @@ class controller(QMainWindow,XmppApp4_ui.Ui_MainWindow):
         #fs_watcher.fileChanged.connect(self.logWatcher)
 
         #dev
-        self.le_server1_ip.setText('10.77.46.90')
-        self.le_server1_hn.setText('cup-dod90')
-        self.le_server1_dn.setText('test.com')
-        self.le_server2_ip.setText('10.77.46.91')
-        self.le_server2_hn.setText('cup-dod91')
-        self.le_server2_dn.setText('test.com')
-        self.le_dns.setText('10.77.137.19')
-        self.le_appid1.setText('admin')
-        self.le_apppw1.setText('ccm-dod')
-        self.le_platid1.setText('admin')
-        self.le_platpw1.setText('ccm-dod')
+
         self.cb_copy.setChecked(True)
 
     def credentialTabHandler(self):
@@ -170,6 +160,8 @@ class controller(QMainWindow,XmppApp4_ui.Ui_MainWindow):
             if self.cb_cup.isChecked():
                 logging.debug('Found server 1 credentials')
                 server1creds = Credentials.Credentials(self.le_appid1.text(),self.le_apppw1.text(),self.le_platid1.text(),self.le_platpw1.text())
+                plat_tuple1 = server1creds._platid, server1creds._platpw
+
             if self.cb_copy.isChecked():
                 logging.debug('Found server 2 credentials')
                 server2creds = server1creds
@@ -177,6 +169,7 @@ class controller(QMainWindow,XmppApp4_ui.Ui_MainWindow):
                 if self.cb_cup.isChecked():
                     logging.debug('Copying Server 2 credentials from server 1')
                     server2creds = Credentials.Credentials(self.le_appid2.text(), self.le_apppw2.text(), self.le_platid2.text(), self.le_platpw2.text())
+                    plat_tuple2 = server2creds._platid, server2creds._platpw
             #self.log('server1creds')
             #self.log(server1creds._appid)
             #self.log(str(server1creds._apppw))
@@ -204,8 +197,7 @@ class controller(QMainWindow,XmppApp4_ui.Ui_MainWindow):
                 dnldir2 = worker2.downloaddir
                 logging.info("Server 1 certs downloaded to "+ str(dnldir1))
                 logging.info('Server 2 certs downloaded to '+ str(dnldir2))
-                plat_tuple1 = server1creds._platid, server1creds._platpw
-                plat_tuple2 = server2creds._platid, server2creds._platpw
+
 
                 uploader1 = uploadCerts.UploadCerts(ip1,'xmpp',plat_tuple1,dnldir2)
                 uploader2 = uploadCerts.UploadCerts(ip2,'xmpp',plat_tuple2,dnldir1)

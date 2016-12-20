@@ -4,4 +4,3 @@ class Credentials:
         self._apppw = apppw
         self._platid = platid
         self._platpw = platpw    #MUCH SECURE SUCH WOW
-                                    #encapsulate for oo

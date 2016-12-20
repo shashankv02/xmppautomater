@@ -3,8 +3,9 @@ import CupConfig
 import logging
 import ApplicationCore
 import ssh
+import uploadCerts
 
-
+PORT = 5269
 
 class WorkerThread():
     def __init__(self,ip1,tlsoption,mode,hn1,dn1,dnsip, creds,advancedTab):
@@ -38,7 +39,7 @@ class WorkerThread():
         logging.info('Contacting DNS. Updating A record')
         self.core.UpdateDnsA(self.hn, self.ip, self.dn, 'A', self.dnsip)
         logging.info('Contacting DNS. Updating SRV record')
-        self.core.UpdateDnsSrv(5269, self.hn, self.dn, self.dnsip)
+        self.core.UpdateDnsSrv(PORT, self.hn, self.dn, self.dnsip)
 
 
     def downloadCerts(self):
@@ -46,7 +47,6 @@ class WorkerThread():
         logging.info('Downloading certs from '+self.ip)
         myssh = ssh.Ssh(self.ip)
         try:
-
             self.downloaddir = myssh.download('/usr/local/sip/.security/xmpp-s2s/certs/cup-xmpp-s2s.der')
             logging.info('Downloaded certs to '+self.downloaddir)
             myssh.download('/usr/local/sip/.security/xmpp-s2s-ECDSA/certs/cup-xmpp-s2s-ECDSA.der')
@@ -60,7 +60,7 @@ class WorkerThread():
     def uploadCerts(self):
         logging.info("Starting upload certs")
         plat_tuple = self.creds._platid, self.creds._platpw
-        certUploader = uploadCerts.UploadCerts(self.ip,'xmpp',plat_tuple,self.downloaddir)
+        uploadCerts.UploadCerts(self.ip,'xmpp',plat_tuple,self.downloaddir)
 
     def run(self):
         logging.debug('Running driver thread')

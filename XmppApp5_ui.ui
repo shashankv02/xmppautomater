@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>607</width>
-    <height>527</height>
+    <width>629</width>
+    <height>519</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -861,7 +861,7 @@ QPushButton:hover {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>607</width>
+     <width>629</width>
      <height>21</height>
     </rect>
    </property>
